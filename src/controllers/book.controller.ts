@@ -9,7 +9,7 @@ export class BookController {
         const router = Router();
         const service = new BookService();
 
-        router.get('/', basicAuthMiddleware, async (req, res) => {
+        router.get('/', async (req, res) => {
             const { status, data } = await service.get();
             return res.status(status).json(data);
         });
