@@ -67,14 +67,23 @@ async function main() {
             },
         ],
     });
-
     console.log('Database seeded with books');
+
+    await prisma.users.create({
+        data: {
+            email: 'admin@admin.com',
+            name: 'Admin',
+            password:
+                '$2a$10$atZbjPRnhU.Ca390nAHsbuQctZdQIp0iz9NVoHAsSZg6rmQt/4xtK',
+            phone: '99999999999',
+        },
+    });
+    console.log('Database seeded with admin user');
 }
 
 main()
     .catch((e) => {
         console.error(e);
-        process.exit(1);
     })
     .finally(async () => {
         await prisma.$disconnect();

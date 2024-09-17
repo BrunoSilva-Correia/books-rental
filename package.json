@@ -8,7 +8,7 @@
         "format": "prettier --write \"src/**/*.ts\"",
         "start": "node dist/src/index.js",
         "dev": "ts-node-dev --respawn src/index.ts",
-        "build": "npx prisma generate && npx prisma db seed && tsc"
+        "build": "npx prisma generate && npx prisma migrate deploy && npx prisma db seed && tsc"
     },
     "prisma": {
         "seed": "ts-node prisma/seed.ts"
