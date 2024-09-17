@@ -2,7 +2,6 @@ import { Request, Router } from 'express';
 import { validateInput } from './utils/validate-input';
 import { BookDto } from '../app/services/dtos/book.dto';
 import { BookService } from '../app/services/book.service';
-import { basicAuthMiddleware } from './middlewares/basic-auth.middleware';
 
 export class BookController {
     useRoutes(): Router {
