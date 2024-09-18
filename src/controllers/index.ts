@@ -10,7 +10,13 @@ export class Controller {
         router.get('/healthcheck', async (req, res) => res.sendStatus(200));
 
         router.get('/login', basicAuthMiddleware, async (req, res) => {
-            return res.sendStatus(200);
+            const token = req.headers['token'];
+            const userId = req.headers['user-id'];
+
+            return res.status(200).json({
+                token,
+                userId: Number(userId),
+            });
         });
 
         const userRoutes = new UserController();

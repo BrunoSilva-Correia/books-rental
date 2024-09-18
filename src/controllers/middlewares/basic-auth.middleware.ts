@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { UserService } from '../../app/services/user.service';
+import { UserDto } from '../../app/services/dtos/user.dto';
 
 // Initialize UserService
 const userService = new UserService();
@@ -36,6 +37,10 @@ export const basicAuthMiddleware = async (
     try {
         const result = await userService.login(username, password);
         if (result.status === 200) {
+            const userData = result.data as UserDto;
+
+            req.headers['token'] = credentials;
+            req.headers['user-id'] = String(userData.id);
             return next();
         } else {
             return res
