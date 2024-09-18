@@ -8,10 +8,8 @@ export class BookMapper {
             author: data.author,
             image: data.image,
             title: data.title,
-            isRented: data.is_rented,
-            rentedBy: data.rented_by
-                ? UserMapper.toDomain(data.rented_by)
-                : null,
+            isRented: data.isRented,
+            rentedBy: data.rentedBy ? UserMapper.toDomain(data.rentedBy) : null,
         });
     }
 
@@ -21,8 +19,8 @@ export class BookMapper {
             author: data.author,
             image: data.image,
             title: data.title,
-            is_rented: data.isRented,
-            rented_by: data.rentedBy ? UserMapper.toHttp(data.rentedBy) : null,
+            isRented: data.isRented,
+            rentedBy: data.rentedBy ? UserMapper.toHttp(data.rentedBy) : null,
         };
     }
 }

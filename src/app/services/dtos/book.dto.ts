@@ -5,6 +5,6 @@ export type BookDto = {
     title: string;
     author: string;
     image: string;
-    is_rented: boolean;
-    rented_by?: UserDto;
+    isRented: boolean;
+    rentedBy?: UserDto;
 };

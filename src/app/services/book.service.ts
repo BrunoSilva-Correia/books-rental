@@ -33,7 +33,7 @@ export class BookService {
 
     public async create(body: BookDto) {
         try {
-            body.is_rented = false;
+            body.isRented = false;
             const data = BookMapper.toDomain(body);
             const created = await this.service.create(data);
             return { status: 201, data: BookMapper.toHttp(created) };
